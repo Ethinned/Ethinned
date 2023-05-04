@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timer Redirect Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			position: relative;
+			height: 100vh;
+		}
+		h1 {
+			margin-top: 50px;
+		}
+		#timer {
+			font-size: 3rem;
+			margin-top: 20px;
+		}
+		#continue {
+			display: none;
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Timer Redirect Page</h1>
+
+	<div id="timer">20</div>
+
+	<button id="continue">Continue</button>
+
+	<script>
+		// Set the redirect link
+		var redirectLink = "https://pdesk.in/converter/drive/4vyeV";
+
+		// Set the timer duration in seconds
+		var timerDuration = 20;
+
+		// Get the timer element
+		var timerElement = document.getElementById("timer");
+
+		// Get the continue button element
+		var continueButton = document.getElementById("continue");
+
+		// Start the timer
+		var timer = setInterval(function() {
+			timerDuration--;
+			timerElement.innerHTML = timerDuration;
+			if (timerDuration <= 0) {
+				clearInterval(timer);
+				continueButton.style.display = "block";
+			}
+		}, 1000);
+
+		// Redirect to the link when continue button is clicked
+		continueButton.onclick = function() {
+			window.location.href = redirectLink;
+		};
+	</script>
+
+</body>
+</html>
